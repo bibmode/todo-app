@@ -24,6 +24,7 @@ export const Input = styled.input`
   :focus {
     outline: none;
     border: 2px solid #2f80ed;
+    margin: -1px;
   }
 `;
 
@@ -38,4 +39,11 @@ export const Add = styled.button`
   padding: 2rem 4rem;
   border-radius: 1.2rem;
   background-color: #2f80ed;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  :hover {
+    background-color: #115ab9;
+  }
 `;

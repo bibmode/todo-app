@@ -11,3 +11,10 @@ export const Wrapper = styled.div`
     margin-block: 3.2rem;
   }
 `;
+
+export const Todos = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
