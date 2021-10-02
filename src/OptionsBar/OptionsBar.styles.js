@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
     position: absolute;
     bottom: -2px;
     left: 5.7rem;
+    border-radius: 4px 4px 0px 0px;
   }
 `;
 

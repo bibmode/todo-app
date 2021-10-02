@@ -1,3 +1,4 @@
+import InputBar from "../InputBar";
 import OptionsBar from "../OptionsBar";
 import { Wrapper } from "./AppDivider.styles";
 
@@ -6,6 +7,7 @@ const AppDivider = () => {
     <Wrapper>
       <h1>#todo</h1>
       <OptionsBar />
+      <InputBar />
     </Wrapper>
   );
 };
