@@ -4,10 +4,6 @@ import { Add, Input, Wrapper } from "./InputBar.styles";
 const InputBar = (props) => {
   const [value, setValue] = useState("");
 
-  // useEffect(()=>{
-  //   setV
-  // },[value])
-
   return (
     <Wrapper>
       <Input

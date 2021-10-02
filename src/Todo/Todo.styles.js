@@ -31,6 +31,10 @@ export const Wrapper = styled.div`
     background-color: #2f80ed;
     border-radius: 4px;
     opacity: 0;
+
+    :hover {
+      border: 1px solid #2f80ed !important;
+    }
   }
 `;
 
@@ -48,10 +52,6 @@ export const Checkbox = styled.input`
     position: absolute;
     top: 2px;
     z-index: 101;
-
-    :hover {
-      border: 1px solid #2f80ed;
-    }
   }
 
   :checked ~ span {
