@@ -7,10 +7,15 @@ import { Todos, Wrapper } from "./AppDivider.styles";
 const AppDivider = () => {
   const [entries, setEntries] = useState([]);
   const [newEntry, setNewEntry] = useState(null);
+  const [newId, setNewId] = useState(null);
 
   useEffect(() => {
-    console.log(newEntry);
-    setEntries(entries.concat(newEntry));
+    setEntries(
+      entries.concat({
+        description: newEntry,
+        id: newId,
+      })
+    );
     console.log(entries);
   }, [newEntry]);
 
@@ -18,10 +23,22 @@ const AppDivider = () => {
     <Wrapper>
       <h1>#todo</h1>
       <OptionsBar />
-      <InputBar getValue={(value) => setNewEntry(value)} />
+      <InputBar
+        getValues={(value, count) => {
+          setNewEntry(value);
+          setNewId(`entry${count}`);
+        }}
+      />
       <Todos>
         {entries.map((entry, index) => {
-          if (entry) return <Todo entry={entry} key={`entrynum${index}`} />;
+          if (entry.description !== null)
+            return (
+              <Todo
+                entry={[entry.description]}
+                id={[entry.id]}
+                key={`entrynum${index}`}
+              />
+            );
         })}
       </Todos>
     </Wrapper>

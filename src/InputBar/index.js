@@ -3,6 +3,7 @@ import { Add, Input, Wrapper } from "./InputBar.styles";
 
 const InputBar = (props) => {
   const [value, setValue] = useState("");
+  const [count, setCount] = useState(0);
 
   return (
     <Wrapper>
@@ -13,7 +14,14 @@ const InputBar = (props) => {
           setValue(e.target.value);
         }}
       />
-      <Add onClick={() => props.getValue(value)}>Add</Add>
+      <Add
+        onClick={() => {
+          setCount(count + 1);
+          props.getValues(value, count);
+        }}
+      >
+        Add
+      </Add>
     </Wrapper>
   );
 };
