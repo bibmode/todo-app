@@ -23,7 +23,7 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 81%;
 `;
 
 export const Option = styled.button`
@@ -32,6 +32,8 @@ export const Option = styled.button`
   font-family: inherit;
   color: inherit;
   background-color: transparent;
+  cursor: pointer;
+  width: 8.9rem;
 
   padding-block: 1.8rem;
   font-size: 1.4rem;
