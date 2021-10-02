@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { Add, Input, Wrapper } from "./InputBar.styles";
 
-const InputBar = () => {
+const InputBar = (props) => {
   const [value, setValue] = useState("");
 
-  useEffect(() => {
-    //console.log(value);
-  }, [value]);
-
-  const getValue = () => {
-    console.log(value);
-  };
+  // useEffect(()=>{
+  //   setV
+  // },[value])
 
   return (
     <Wrapper>
@@ -21,7 +17,7 @@ const InputBar = () => {
           setValue(e.target.value);
         }}
       />
-      <Add onClick={getValue}>Add</Add>
+      <Add onClick={() => props.getValue(value)}>Add</Add>
     </Wrapper>
   );
 };
