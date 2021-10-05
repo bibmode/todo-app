@@ -15,12 +15,13 @@ const AppDivider = () => {
 
   //create a method that gets the value of crossed
   const checkStatus = (id, crossed) => {
-    entries.map((el) => {
+    const newEntries = entries.map((el) => {
       if (el.id === id[0]) {
         el.completed = crossed;
       }
+      return el;
     });
-
+    setEntries(newEntries);
     console.log(entries);
   };
 
@@ -68,13 +69,15 @@ const AppDivider = () => {
               {entries.map((entry, index) => {
                 if (
                   entry.description !== null &&
-                  entry.description.trim() !== ""
+                  entry.description.trim() !== "" &&
+                  entry.completed === false
                 )
                   return (
                     <Todo
                       entry={[entry.description]}
                       id={[entry.id]}
                       key={`entrynum${index}`}
+                      seeChange={checkStatus}
                     />
                   );
                 return null;
@@ -87,13 +90,15 @@ const AppDivider = () => {
               {entries.map((entry, index) => {
                 if (
                   entry.description !== null &&
-                  entry.description.trim() !== ""
+                  entry.description.trim() !== "" &&
+                  entry.completed === true
                 )
                   return (
                     <Todo
                       entry={[entry.description]}
                       id={[entry.id]}
                       key={`entrynum${index}`}
+                      seeChange={checkStatus}
                     />
                   );
                 return null;
