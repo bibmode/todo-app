@@ -1,23 +1,30 @@
 import { Wrapper, Option, List } from "./OptionsBar.styles";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const OptionsBar = (props) => {
+  const [status, setStatus] = useState("translateX(0rem)");
+
   return (
-    <Wrapper>
+    <Wrapper position={status}>
       <List>
         <li>
           <Link to="/">
-            <Option onClick={() => console.log("all")}>All</Option>
+            <Option onClick={() => setStatus("translateX(0rem)")}>All</Option>
           </Link>
         </li>
         <li>
           <Link to="/active">
-            <Option onClick={() => console.log("active")}>Active</Option>
+            <Option onClick={() => setStatus("translateX(20.3rem)")}>
+              Active
+            </Option>
           </Link>
         </li>
         <li>
           <Link to="/completed">
-            <Option onClick={() => console.log("completed")}>Completed</Option>
+            <Option onClick={() => setStatus("translateX(40.4rem)")}>
+              Completed
+            </Option>
           </Link>
         </li>
       </List>

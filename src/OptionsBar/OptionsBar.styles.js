@@ -16,6 +16,9 @@ export const Wrapper = styled.div`
     bottom: -1px;
     left: 5.7rem;
     border-radius: 4px 4px 0px 0px;
+    transition: all 0.3s ease;
+
+    transform: ${(props) => props.position};
   }
 `;
 
