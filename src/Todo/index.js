@@ -1,11 +1,18 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import { useEffect } from "react/cjs/react.development";
 import { Checkbox, Wrapper } from "./Todo.styles";
 
-const Todo = ({ entry }) => {
+const Todo = ({ entry, id, seeChange }) => {
   return (
     <Wrapper>
-      <Checkbox type="checkbox" id="check1" />
-      <label htmlFor="check1">{entry}</label>
+      <Checkbox
+        type="checkbox"
+        id={id}
+        onChange={() => {
+          seeChange(id);
+        }}
+      />
+      <label htmlFor={id}>{entry}</label>
       <span className="material-icons">check</span>
     </Wrapper>
   );

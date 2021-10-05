@@ -30,7 +30,7 @@ export const Option = styled.button`
   border: none;
   outline: none;
   font-family: inherit;
-  color: inherit;
+  color: #333333;
   background-color: transparent;
   cursor: pointer;
   width: 8.9rem;
