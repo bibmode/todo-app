@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import InputBar from "../InputBar";
 import OptionsBar from "../OptionsBar";
 import Todo from "../Todo";
@@ -7,16 +7,21 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const AppDivider = () => {
   const [entries, setEntries] = useState([]);
-  const [crossed, setCrossed] = useState(false);
 
-  useEffect(() => {
-    console.log(crossed);
-    console.log("changed");
-  }, [crossed]);
+  // useEffect(() => {
+  //   console.log(crossed);
+  //   console.log("changed");
+  // }, [crossed]);
 
   //create a method that gets the value of crossed
-  const checkStatus = (id) => {
-    console.log(id);
+  const checkStatus = (id, crossed) => {
+    entries.map((el) => {
+      if (el.id === id[0]) {
+        el.completed = crossed;
+      }
+    });
+
+    console.log(entries);
   };
 
   return (
@@ -31,7 +36,7 @@ const AppDivider = () => {
               entries.concat({
                 description: value,
                 id: count,
-                completed: crossed,
+                completed: false,
               })
             );
           }}

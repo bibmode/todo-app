@@ -3,13 +3,16 @@ import { useEffect } from "react/cjs/react.development";
 import { Checkbox, Wrapper } from "./Todo.styles";
 
 const Todo = ({ entry, id, seeChange }) => {
+  const [crossed, setCrossed] = useState(true);
+
   return (
     <Wrapper>
       <Checkbox
         type="checkbox"
         id={id}
         onChange={() => {
-          seeChange(id);
+          setCrossed(!crossed);
+          seeChange(id, crossed);
         }}
       />
       <label htmlFor={id}>{entry}</label>
