@@ -10,13 +10,20 @@ const AppDivider = () => {
 
   //create a method that gets the value of crossed
   const checkStatus = (id) => {
-    const newEntries = entries.map((el) => {
+    const newEntries1 = entries.map((el) => {
       if (el.id === id[0]) {
         el.completed = !el.completed;
       }
       return el;
     });
-    setEntries(newEntries);
+    setEntries(newEntries1);
+    console.log(entries);
+  };
+
+  //remove entry in system
+  const deleteEntry = (id) => {
+    const newEntries2 = entries.filter((el) => el.id !== id[0]);
+    setEntries(newEntries2);
     console.log(entries);
   };
 
@@ -98,6 +105,7 @@ const AppDivider = () => {
                       key={`entrynum${index}`}
                       seeChange={checkStatus}
                       trashOption={true}
+                      deleteEntry={deleteEntry}
                     />
                   );
                 return null;

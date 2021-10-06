@@ -2,7 +2,14 @@ import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import { Checkbox, Wrapper, Trash } from "./Todo.styles";
 
-const Todo = ({ entry, id, seeChange, completed, trashOption }) => {
+const Todo = ({
+  entry,
+  id,
+  seeChange,
+  completed,
+  trashOption,
+  deleteEntry,
+}) => {
   return (
     <Wrapper>
       <Checkbox
@@ -16,7 +23,11 @@ const Todo = ({ entry, id, seeChange, completed, trashOption }) => {
       <label htmlFor={id}>{entry}</label>
       <span className="material-icons check">check</span>
       {trashOption && (
-        <Trash>
+        <Trash
+          onClick={() => {
+            deleteEntry(id);
+          }}
+        >
           <span className="material-icons-outlined delete">delete</span>
         </Trash>
       )}
