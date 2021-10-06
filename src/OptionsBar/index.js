@@ -2,7 +2,7 @@ import { Wrapper, Option, List } from "./OptionsBar.styles";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const OptionsBar = (props) => {
+const OptionsBar = () => {
   const [status, setStatus] = useState("translateX(0rem)");
 
   return (

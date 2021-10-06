@@ -55,6 +55,7 @@ const AppDivider = () => {
                     <Todo
                       entry={[entry.description]}
                       id={[entry.id]}
+                      completed={entry.completed}
                       key={`entrynum${index}`}
                       seeChange={checkStatus}
                     />
@@ -76,6 +77,7 @@ const AppDivider = () => {
                     <Todo
                       entry={[entry.description]}
                       id={[entry.id]}
+                      completed={entry.completed}
                       key={`entrynum${index}`}
                       seeChange={checkStatus}
                     />
@@ -97,6 +99,7 @@ const AppDivider = () => {
                     <Todo
                       entry={[entry.description]}
                       id={[entry.id]}
+                      completed={entry.completed}
                       key={`entrynum${index}`}
                       seeChange={checkStatus}
                     />
