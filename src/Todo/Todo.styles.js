@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   align-items: center;
   position: relative;
   margin-bottom: 2.5rem;
+  width: 100%;
 
   label {
     font-size: 1.8rem;
@@ -24,7 +25,7 @@ export const Wrapper = styled.div`
     }
   }
 
-  span {
+  .check {
     position: absolute;
     left: 0;
     color: #fff;
@@ -54,7 +55,7 @@ export const Checkbox = styled.input`
     z-index: 101;
   }
 
-  :checked ~ span {
+  :checked ~ .check {
     opacity: 1;
   }
 
@@ -69,6 +70,30 @@ export const Checkbox = styled.input`
     }
     100% {
       width: 100%;
+    }
+  }
+`;
+
+export const Trash = styled.button`
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  cursor: pointer;
+  display: flex;
+  width: fit-content;
+
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  .delete {
+    //color: orangered;
+    color: #bdbdbd;
+    left: 0;
+    opacity: 1;
+
+    :hover {
+      color: #2f80ed;
     }
   }
 `;

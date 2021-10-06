@@ -97,6 +97,7 @@ const AppDivider = () => {
                       completed={entry.completed}
                       key={`entrynum${index}`}
                       seeChange={checkStatus}
+                      trashOption={true}
                     />
                   );
                 return null;
