@@ -12,6 +12,7 @@ const InputBar = (props) => {
         event.preventDefault();
         setCount(count + 1);
         props.getValues(value, count);
+        setValue("");
       }
     };
     document.addEventListener("keydown", listener);
@@ -25,6 +26,7 @@ const InputBar = (props) => {
       <Input
         type="text"
         placeholder="add details"
+        value={value}
         onChange={(e) => {
           setValue(e.target.value);
         }}
@@ -34,6 +36,7 @@ const InputBar = (props) => {
         onClick={() => {
           setCount(count + 1);
           props.getValues(value, count);
+          setValue("");
         }}
       >
         Add

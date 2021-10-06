@@ -7,14 +7,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const AppDivider = () => {
   const [entries, setEntries] = useState([]);
-  const [crossed, setCrossed] = useState(true);
 
   //create a method that gets the value of crossed
   const checkStatus = (id) => {
     const newEntries = entries.map((el) => {
       if (el.id === id[0]) {
-        el.completed = crossed;
-        setCrossed(!crossed);
+        el.completed = !el.completed;
       }
       return el;
     });
