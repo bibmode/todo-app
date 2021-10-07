@@ -15,6 +15,10 @@ export const Input = styled.input`
   width: 78%;
   padding-inline: 1.2rem;
 
+  @media only screen and (max-width: 40.6em) {
+    width: 75%;
+  }
+
   ::placeholder {
     font-size: inherit;
     font-family: inherit;
@@ -37,9 +41,15 @@ export const Add = styled.button`
   border: none;
   outline: none;
   padding: 2rem 4rem;
+  text-align: center;
   border-radius: 1.2rem;
   background-color: #2f80ed;
   cursor: pointer;
+
+  @media only screen and (max-width: 40.6em) {
+    width: 20%;
+    padding: 1.2rem 0;
+  }
 
   transition: all 0.3s ease;
 

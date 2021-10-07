@@ -14,11 +14,23 @@ export const Wrapper = styled.div`
     height: 4px;
     position: absolute;
     bottom: -1px;
-    left: 5.8rem;
+    //left: 10%;
     border-radius: 4px 4px 0px 0px;
     transition: all 0.3s ease;
 
-    transform: ${(props) => props.position};
+    left: ${(props) => {
+      if (props.status === "all") return "10%";
+      if (props.status === "active") return "42.8%";
+      if (props.status === "completed") return "75.9%";
+    }};
+
+    @media only screen and (max-width: 40.6em) {
+      left: ${(props) => {
+        if (props.status === "all") return "0%";
+        if (props.status === "active") return "calc(50% - (8.9rem / 2))";
+        if (props.status === "completed") return "calc(100% - 8.9rem)";
+      }};
+    }
   }
 `;
 
@@ -27,6 +39,10 @@ export const List = styled.ul`
   display: flex;
   justify-content: space-between;
   width: 81%;
+
+  @media only screen and (max-width: 40.6em) {
+    width: 100%;
+  }
 `;
 
 export const Option = styled.button`
@@ -41,4 +57,8 @@ export const Option = styled.button`
   padding-block: 1.8rem;
   font-size: 1.4rem;
   font-weight: 600;
+
+  @media only screen and (max-width: 40.6em) {
+    font-size: 1.2rem;
+  }
 `;

@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
 import { Checkbox, Wrapper, Trash } from "./Todo.styles";
 
 const Todo = ({

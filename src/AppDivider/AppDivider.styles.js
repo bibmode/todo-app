@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   height: 100vh;
-  width: 60.8rem;
+  width: min(60.8rem, 90%);
 
   h1 {
     font-family: "Raleway", sans-serif;
@@ -36,6 +36,7 @@ export const Delete = styled.button`
   color: #fff;
   outline: 0;
   border: 0;
+  transition: all 0.3s ease;
 
   .material-icons-outlined {
     font-size: 1.4rem;

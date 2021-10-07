@@ -4,7 +4,6 @@ import OptionsBar from "../OptionsBar";
 import Todo from "../Todo";
 import { Delete, Todos, Wrapper } from "./AppDivider.styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
 
 const AppDivider = () => {
   const [entries, setEntries] = useState([]);
@@ -19,14 +18,12 @@ const AppDivider = () => {
       return el;
     });
     setEntries(newEntries1);
-    console.log(entries);
   };
 
   //remove entry in system
   const deleteEntry = (id) => {
     const newEntries2 = entries.filter((el) => el.id !== id[0]);
     setEntries(newEntries2);
-    //countCompleted();
   };
 
   //remove all completed entries
@@ -35,7 +32,6 @@ const AppDivider = () => {
       (el) => el.completed === false
     );
     setEntries(incompleteEntriesRemain);
-    console.log(entries);
   };
 
   return (
@@ -80,6 +76,18 @@ const AppDivider = () => {
           </Route>
 
           <Route exact path="/active">
+            <InputBar
+              getValues={(value) => {
+                setEntries(
+                  entries.concat({
+                    description: value,
+                    id: idCount,
+                    completed: false,
+                  })
+                );
+                setIdCount(idCount + 1);
+              }}
+            />
             <Todos>
               {entries.map((entry, index) => {
                 if (

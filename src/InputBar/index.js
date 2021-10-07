@@ -30,7 +30,6 @@ const InputBar = (props) => {
         }}
       />
       <Add
-        accessKey="13"
         onClick={() => {
           if (value.trim() !== "") props.getValues(value);
           setValue("");
