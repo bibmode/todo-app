@@ -17,7 +17,7 @@ const InputBar = (props) => {
     return () => {
       document.removeEventListener("keydown", listener);
     };
-  });
+  }, [value]);
 
   return (
     <Wrapper>
