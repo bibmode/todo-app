@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 import { Add, Input, Wrapper } from "./InputBar.styles";
 
 const InputBar = (props) => {
