@@ -8,18 +8,7 @@ import { useEffect } from "react/cjs/react.development";
 
 const AppDivider = () => {
   const [entries, setEntries] = useState([]);
-  const [completedNum, setCompletedNum] = useState(0);
   const [idCount, setIdCount] = useState(0);
-
-  const countCompleted = () => {
-    setCompletedNum(0);
-    entries.forEach((el) => {
-      if (el.completed === true) {
-        setCompletedNum(completedNum + 1);
-      }
-    });
-    console.log(completedNum);
-  };
 
   //create a method that gets the value of crossed
   const checkStatus = (id) => {
@@ -30,7 +19,6 @@ const AppDivider = () => {
       return el;
     });
     setEntries(newEntries1);
-    //countCompleted();
     console.log(entries);
   };
 
@@ -126,7 +114,14 @@ const AppDivider = () => {
                 return null;
               })}
             </Todos>
-            {completedNum > 1 ? <Delete>hello</Delete> : null}
+            {entries.filter((el) => el.completed === true).length > 1 && (
+              <Delete>
+                <span className="material-icons-outlined delete-all">
+                  delete
+                </span>
+                delete all
+              </Delete>
+            )}
           </Route>
         </Switch>
       </Router>
