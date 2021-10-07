@@ -8,15 +8,17 @@ import { useEffect } from "react/cjs/react.development";
 
 const AppDivider = () => {
   const [entries, setEntries] = useState([]);
-  const [completedEntries, setCompletedEntries] = useState([]);
-  const [length, setLength] = useState(0);
-
-  useEffect(() => {
-    setLength(completedEntries.length);
-  }, [completedEntries]);
+  const [completedNum, setCompletedNum] = useState(0);
+  const [idCount, setIdCount] = useState(0);
 
   const countCompleted = () => {
-    setCompletedEntries(entries.filter((el) => el.completed === true));
+    setCompletedNum(0);
+    entries.forEach((el) => {
+      if (el.completed === true) {
+        setCompletedNum(completedNum + 1);
+      }
+    });
+    console.log(completedNum);
   };
 
   //create a method that gets the value of crossed
@@ -28,15 +30,15 @@ const AppDivider = () => {
       return el;
     });
     setEntries(newEntries1);
-    countCompleted();
+    //countCompleted();
+    console.log(entries);
   };
 
   //remove entry in system
   const deleteEntry = (id) => {
     const newEntries2 = entries.filter((el) => el.id !== id[0]);
     setEntries(newEntries2);
-    setLength(completedEntries.length);
-    countCompleted();
+    //countCompleted();
   };
 
   return (
@@ -45,20 +47,21 @@ const AppDivider = () => {
         <h1>#todo</h1>
 
         <OptionsBar />
-        <InputBar
-          getValues={(value, count) => {
-            setEntries(
-              entries.concat({
-                description: value,
-                id: count,
-                completed: false,
-              })
-            );
-          }}
-        />
 
         <Switch>
           <Route exact path="/">
+            <InputBar
+              getValues={(value) => {
+                setEntries(
+                  entries.concat({
+                    description: value,
+                    id: idCount,
+                    completed: false,
+                  })
+                );
+                setIdCount(idCount + 1);
+              }}
+            />
             <Todos>
               {entries.map((entry, index) => {
                 if (
@@ -123,14 +126,7 @@ const AppDivider = () => {
                 return null;
               })}
             </Todos>
-            {completedEntries.length > 1 && (
-              <Delete>
-                <span className="material-icons-outlined delete-all">
-                  delete
-                </span>
-                delete all
-              </Delete>
-            )}
+            {completedNum > 1 ? <Delete>hello</Delete> : null}
           </Route>
         </Switch>
       </Router>

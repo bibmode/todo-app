@@ -4,14 +4,12 @@ import { Add, Input, Wrapper } from "./InputBar.styles";
 
 const InputBar = (props) => {
   const [value, setValue] = useState("");
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const listener = (event) => {
-      if (event.code === "Enter") {
+      if (event.code === "Enter" && value.trim() !== "") {
         event.preventDefault();
-        setCount(count + 1);
-        props.getValues(value, count);
+        props.getValues(value);
         setValue("");
       }
     };
@@ -34,8 +32,7 @@ const InputBar = (props) => {
       <Add
         accessKey="13"
         onClick={() => {
-          setCount(count + 1);
-          props.getValues(value, count);
+          if (value.trim() !== "") props.getValues(value);
           setValue("");
         }}
       >
