@@ -22,7 +22,7 @@ const OptionsBar = () => {
         </li>
         <li>
           <Link to="/completed">
-            <Option onClick={() => setStatus("translateX(40.4rem)")}>
+            <Option onClick={() => setStatus("translateX(40.3rem)")}>
               Completed
             </Option>
           </Link>
