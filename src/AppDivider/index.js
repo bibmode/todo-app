@@ -29,6 +29,15 @@ const AppDivider = () => {
     //countCompleted();
   };
 
+  //remove all completed entries
+  const deleteAllCompleted = () => {
+    const incompleteEntriesRemain = entries.filter(
+      (el) => el.completed === false
+    );
+    setEntries(incompleteEntriesRemain);
+    console.log(entries);
+  };
+
   return (
     <Wrapper>
       <Router>
@@ -115,7 +124,7 @@ const AppDivider = () => {
               })}
             </Todos>
             {entries.filter((el) => el.completed === true).length > 1 && (
-              <Delete>
+              <Delete onClick={deleteAllCompleted}>
                 <span className="material-icons-outlined delete-all">
                   delete
                 </span>
